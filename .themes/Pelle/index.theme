@@ -1,0 +1,14 @@
+[X-GNOME-Metatheme]
+Name=Pelle
+Name[en_CA]=Pelle
+Name[en_GB]=Pelle
+Type=X-GNOME-Metatheme
+Comment=Reverse contrast brown theme
+Comment[en_CA]=Reverse contrast brown theme
+Comment[en_GB]=Reverse contrast brown theme
+Encoding=UTF-8
+GtkTheme=Pelle
+MetacityTheme=GNOME
+IconTheme=AwOken
+CursorTheme=ComixCursors-Red-Huge
+CursorSize=32
