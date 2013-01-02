@@ -65,6 +65,8 @@ cmap Q q
 " this fixes the mind-blowingly retarded fact that vim has a one second delay between switching out of 
 " insert mode and into command mode.
 imap ` <C-c>
+map <C-v> "+p
+map <C-z> <C-c>u
 """"""""""""""""""""'
 
 " Map F5 to load the current file into ghci; shamelessly stolen from kuraitou
