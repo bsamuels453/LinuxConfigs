@@ -52,6 +52,8 @@
       <property name="&lt;Super&gt;4" type="string" value="gnumeric"/>
       <property name="&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
       <property name="override" type="bool" value="true"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Return" type="string" value="exo-open --launch TerminalEmulator"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;backslash" type="string" value="exo-open --launch FileManager"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
