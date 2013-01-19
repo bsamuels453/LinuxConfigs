@@ -48,7 +48,8 @@ set gdefault				" the /g flag on :s substitutions by default
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.   " Highlight problematic whitespace	
 set nowrap                     			" wrap long lines
-" Remove trailing whitespaces and ^M chars
+set relativenumber                              " makes jumping easier
+"  Remove trailing whitespaces and ^M chars
 " autocmd FileType c, hs,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 """""""""""""""""""""muh bindings
