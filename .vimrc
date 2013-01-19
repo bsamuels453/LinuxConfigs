@@ -76,6 +76,9 @@ map <C-v> "+p
 imap <C-v> <C-c>"+pi
 map <C-z> <C-c>u
 imap <C-z> <C-c>ui
+
+" make "a" append at beginning of line, rather than whatever the hell it does now
+map a ^i
 """"""""""""""""""""'
 
 " Map F5 to load the current file into ghci; shamelessly stolen from kuraitou
