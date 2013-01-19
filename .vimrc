@@ -65,8 +65,16 @@ cmap Q q
 " this fixes the mind-blowingly retarded fact that vim has a one second delay between switching out of 
 " insert mode and into command mode.
 imap ` <C-c>`^
+
+" this handsome little hack forces the cursor's color to change when the mode changes to insert
+" normally, the mode would change to insert and the cursor color would not change until you started typing
+map i id<BS>
+
+" sane pasting and undo
 map <C-v> "+p
+imap <C-v> <C-c>"+pi
 map <C-z> <C-c>u
+imap <C-z> <C-c>ui
 """"""""""""""""""""'
 
 " Map F5 to load the current file into ghci; shamelessly stolen from kuraitou
