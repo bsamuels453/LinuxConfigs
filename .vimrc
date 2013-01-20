@@ -69,7 +69,7 @@ imap ` <C-c>`^
 
 " this handsome little hack forces the cursor's color to change when the mode changes to insert
 " normally, the mode would change to insert and the cursor color would not change until you started typing
-map i id<BS>
+nmap i id<BS>
 
 " sane pasting and undo
 map <C-v> "+p
