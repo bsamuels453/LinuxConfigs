@@ -88,6 +88,11 @@ else
 	autocmd FileType haskell nmap <buffer> <F5> :!start ghci %:p<CR>
 endif
 
+" Map F5 to load current file into node
+if has("unix")
+	autocmd FileType javascript nmap <buffer> <F5> :!node %:p<CR>
+endif
+
 "git stuff for whenever we get around to that
 let b:VCSCommandMapPrefix=',v'
 let b:VCSCommandVCSType='git'
