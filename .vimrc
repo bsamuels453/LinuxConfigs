@@ -93,6 +93,11 @@ if has("unix")
 	autocmd FileType javascript nmap <buffer> <F5> :!node %:p<CR>
 endif
 
+" Map F5 for launching django server
+if expand('%:t') == "manage.py"
+	autocmd FileType python nmap <buffer> <F5> :!python %:p runserver 8888<CR>
+endif
+
 "git stuff for whenever we get around to that
 let b:VCSCommandMapPrefix=',v'
 let b:VCSCommandVCSType='git'
