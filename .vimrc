@@ -79,8 +79,8 @@ imap <C-z> <C-c>ui
 
 " make "a" append at beginning of line, rather than whatever the hell it does now
 map a ^i
-""""""""""""""""""""'
 
+""""""""""""""""""""'compiler mappings
 " Map F5 to load the current file into ghci; shamelessly stolen from kuraitou
 if has("unix")
 	autocmd FileType haskell nmap <buffer> <F5> :!ghci %:p<CR>
@@ -97,6 +97,9 @@ endif
 if expand('%:t') == "manage.py"
 	autocmd FileType python nmap <buffer> <F5> :!python %:p runserver 8888<CR>
 endif
+
+"other stuff
+autocmd FileType python compiler pylint
 
 "git stuff for whenever we get around to that
 let b:VCSCommandMapPrefix=',v'
