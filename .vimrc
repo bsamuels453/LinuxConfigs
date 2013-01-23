@@ -49,6 +49,7 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.   " Highlight problematic whitespace	
 set nowrap                     			" wrap long lines
 set relativenumber                              " makes jumping easier
+set nohlsearch				" no highlighting search queries
 "  Remove trailing whitespaces and ^M chars
 " autocmd FileType c, hs,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
