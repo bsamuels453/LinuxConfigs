@@ -95,7 +95,12 @@ endif
 
 " Map F5 for launching django server
 if expand('%:t') == "manage.py"
-	autocmd FileType python nmap <buffer> <F5> :!python %:p runserver 8888<CR>
+	autocmd FileType python nmap <buffer> <F6> :!python %:p runserver 8888<CR>
+endif
+
+" Map F5 for launching python files
+if has("unix")
+	autocmd FileType python nmap <buffer> <F5> :!python %:p<CR>
 endif
 
 "other stuff
