@@ -72,10 +72,12 @@ imap ` <C-c>`^
 " normally, the mode would change to insert and the cursor color would not change until you started typing
 nmap i id<BS>
 
-" sane pasting and undo
+" sane pasting 
 map <C-v> "+p
 imap <C-v> <C-c>"+pi
-map <C-z> <C-c>u
+map <C-c> "+y
+" sane undo
+map <C-z> u
 imap <C-z> <C-c>ui
 
 " make "a" append at beginning of line, rather than whatever the hell it does now
