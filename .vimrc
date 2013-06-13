@@ -106,6 +106,11 @@ if has("unix")
 	autocmd FileType python nmap <buffer> <F5> :!python %:p<CR>
 endif
 
+" Map F5 for launching make
+if has("unix")
+	autocmd FileType c nmap <buffer> <F5> :!make %:r<CR>
+endif
+
 "other stuff
 autocmd FileType python compiler pylint
 
