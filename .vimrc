@@ -112,12 +112,12 @@ endif
 
 " Map F5 for launching rustc
 if has("unix")
-	autocmd FileType rust nmap <buffer> <F5> :!rustc %:p<CR>
+	autocmd FileType rust nmap <buffer> <F5> :!rustc %:p -Z debug-info<CR>
 endif
 
-" Map F5 for launching program
+" Map F6 to gdb
 if has("unix")
-	nmap <buffer> <F6> :!./%:r<CR>
+	nmap <buffer> <F6> :!gdb %:r<CR>
 endif
 
 "other stuff
