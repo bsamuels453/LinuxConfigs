@@ -6,7 +6,10 @@ if &term =~ "xterm\\|rxvt"
   let &t_EI = "\<Esc>]12;red\x7"
   silent !echo -ne "\033]12;red\007"
   autocmd VimLeave * silent !echo -ne "\033]112\007"
-endif		
+endif
+
+" set up rust syntax coloring
+au BufRead,BufNewFile *.rs,*.rc set filetype=rust
 
 " fix broken arrow key nav in insert mode
 imap <ESC>oA <ESC>ki
@@ -96,10 +99,6 @@ if has("unix")
 	autocmd FileType javascript nmap <buffer> <F5> :!node %:p<CR>
 endif
 
-" Map F5 for launching django server
-if expand('%:t') == "manage.py"
-	autocmd FileType python nmap <buffer> <F6> :!python %:p runserver 8888<CR>
-endif
 
 " Map F5 for launching python files
 if has("unix")
@@ -109,6 +108,16 @@ endif
 " Map F5 for launching make
 if has("unix")
 	autocmd FileType c nmap <buffer> <F5> :!make %:r<CR>
+endif
+
+" Map F5 for launching rustc
+if has("unix")
+	autocmd FileType rust nmap <buffer> <F5> :!rustc %:p<CR>
+endif
+
+" Map F5 for launching program
+if has("unix")
+	nmap <buffer> <F6> :!./%:r<CR>
 endif
 
 "other stuff
