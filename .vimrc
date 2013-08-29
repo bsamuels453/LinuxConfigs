@@ -123,6 +123,10 @@ endif
 "other stuff
 autocmd FileType python compiler pylint
 
+" switch line numbering
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 "git stuff for whenever we get around to that
 let b:VCSCommandMapPrefix=',v'
 let b:VCSCommandVCSType='git'
