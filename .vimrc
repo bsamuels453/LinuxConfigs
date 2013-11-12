@@ -23,7 +23,6 @@ syntax on 				" syntax highlighting
 colorscheme molokai
 set mouse=a				" automatically enable mouse usage
 set history=1000  			" Store a ton of history (default is 20)
-set backup 				" backups are nice ...
 set undofile				" so is persistent undo ...
 set undolevels=1000 			" maximum number of changes that can be undone
 set undoreload=10000 			" maximum number lines to save for undo on a buffer reload
@@ -81,7 +80,7 @@ imap <C-v> <C-c>"+pi
 map <C-c> "+y
 " sane undo
 map <C-z> u
-imap <C-z> <C-c>ui
+imap <C-z> <C-c>u
 
 " make "a" append at beginning of line, rather than whatever the hell it does now
 map a ^i
@@ -90,8 +89,14 @@ map a ^i
 " Map F5 to load the current file into ghci; shamelessly stolen from kuraitou
 if has("unix")
 	autocmd FileType haskell nmap <buffer> <F5> :!ghci %:p<CR>
-else
-	autocmd FileType haskell nmap <buffer> <F5> :!start ghci %:p<CR>
+	"haskell indenting stuff
+	autocmd FileType haskell set tabstop=8
+	autocmd FileType haskell set expandtab
+	autocmd FileType haskell set softtabstop=4
+	autocmd FileType haskell set shiftwidth=4
+	autocmd FileType haskell set smarttab
+	autocmd FileType haskell set shiftround
+	autocmd FileType haskell set nojoinspaces
 endif
 
 " Map F5 to load current file into node
