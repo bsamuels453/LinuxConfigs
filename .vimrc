@@ -89,6 +89,8 @@ map a ^i
 " Map F5 to load the current file into ghci; shamelessly stolen from kuraitou
 if has("unix")
 	autocmd FileType haskell nmap <buffer> <F5> :!ghci %:p<CR>
+	autocmd FileType haskell nmap <buffer> <F6> :!ghc %:p<CR>
+	autocmd FileType haskell nmap <buffer> <F7> :!./%:r<CR>
 	"haskell indenting stuff
 	autocmd FileType haskell set tabstop=8
 	autocmd FileType haskell set expandtab
