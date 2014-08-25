@@ -11,6 +11,9 @@ endif
 " set up rust syntax coloring
 au BufRead,BufNewFile *.rs,*.rc set filetype=rust
 
+" set up logfile syntax coloring using the syslogd coloring scheme
+au BufRead,BufNewFile *.log set filetype=messages
+
 " fix broken arrow key nav in insert mode
 imap <ESC>oA <ESC>ki
 imap <ESC>oB <ESC>ji
