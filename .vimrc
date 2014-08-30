@@ -1,5 +1,7 @@
 set nocompatible 
 
+"""""""dirty hacks"""""""
+
 "color-coded cursor depending on mode; green for insert, red for command
 if &term =~ "xterm\\|rxvt"
   let &t_SI = "\<Esc>]12;green\x7"
@@ -8,17 +10,21 @@ if &term =~ "xterm\\|rxvt"
   autocmd VimLeave * silent !echo -ne "\033]112\007"
 endif
 
-" set up rust syntax coloring
-au BufRead,BufNewFile *.rs,*.rc set filetype=rust
-
-" set up logfile syntax coloring using the syslogd coloring scheme
-au BufRead,BufNewFile *.log set filetype=messages
-
 " fix broken arrow key nav in insert mode
 imap <ESC>oA <ESC>ki
 imap <ESC>oB <ESC>ji
 imap <ESC>oC <ESC>li
 imap <ESC>oD <ESC>hi
+
+" fix 1 second screen delay on switching out of insert to command mode
+imap ` <C-c>`^
+
+" forces the cursor's color to change when the mode changes to insert
+" normally, the mode would change to insert and the cursor color would not change until you started typing
+nmap i id<BS>
+
+
+"""""""general settings"""""""
 
 let &t_Co=256				" let vim know we got all dem 256 colors
 filetype plugin indent on  		" Automatically detect file types.
@@ -58,24 +64,14 @@ set nohlsearch				" no highlighting search queries
 "  Remove trailing whitespaces and ^M chars
 " autocmd FileType c, hs,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
-"""""""""""""""""""""muh bindings
+"""""""binds & dirty hacks"""""""
+
 " screw the shift button, dont wanna waste time with that crap
 nnoremap ; :
-
-" forget moving hands off homerow for something as simple as a search
-nnoremap F /
 
 " fix shift key abomination 
 cmap W w
 cmap Q q
-
-" this fixes the mind-blowingly retarded fact that vim has a one second delay between switching out of 
-" insert mode and into command mode.
-imap ` <C-c>`^
-
-" this handsome little hack forces the cursor's color to change when the mode changes to insert
-" normally, the mode would change to insert and the cursor color would not change until you started typing
-nmap i id<BS>
 
 " sane pasting 
 map <C-v> "+p
@@ -85,10 +81,18 @@ map <C-c> "+y
 map <C-z> u
 imap <C-z> <C-c>u
 
-" make "a" append at beginning of line, rather than whatever the hell it does now
-map a ^i
 
-""""""""""""""""""""'compiler mappings
+"""""""file type mappings"""""""
+
+" set up rust syntax coloring
+au BufRead,BufNewFile *.rs,*.rc set filetype=rust
+
+" set up logfile syntax coloring using the syslogd coloring scheme
+au BufRead,BufNewFile *.log set filetype=messages
+
+
+"""""""compiler mappings"""""""
+
 " Map F5 to load the current file into ghci; shamelessly stolen from kuraitou
 if has("unix")
 	autocmd FileType haskell nmap <buffer> <F5> :!ghci %:p<CR>
@@ -130,14 +134,11 @@ if has("unix")
 	nmap <buffer> <F6> :!gdb %:r<CR>
 endif
 
-"other stuff
+"""""""other stuff"""""""
+
 autocmd FileType python compiler pylint
 
-" switch line numbering
+" switch line numbering depending on current mode
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
-
-"git stuff for whenever we get around to that
-let b:VCSCommandMapPrefix=',v'
-let b:VCSCommandVCSType='git'
 
